@@ -6,17 +6,18 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @q = Post.ransack(params[:q])
+    @q = current_author.posts.ransack(params[:q])
     @posts = @q.result(distinct: true)
     #@posts = current_author.posts
   end
   
-
-
+  
+  
 
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @posts = @post
   end
 
   # GET /posts/new

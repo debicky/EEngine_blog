@@ -1,29 +1,26 @@
-<p id="notice"><%= notice %></p>
+<div class="my-3">
+  <div class="card">
+    <div class="card-header">
+      <h4><%= @post.title %></h4>
+      <h6 class="card-subtitle mb-0 text-muted">
+      Posted <%= time_ago_in_words(@post.published_at) %> ago by <%= @post.author.first_name %> <%= @post.author.last_name %>.
+      </h6>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+    </div>
+    <div class="card-body">
+      <p class="mb-0"><%= @post.body %></p>
+    </div>
+  </div>
+</div>
+<div class="my-3">
+  <div class="card">
+    <div class="card-header">Comment</div>
+    <div class="card-body">
 
-<p>
-  <strong>Body:</strong>
-  <%= @post.body %>
-</p>
-
-<p>
-  <strong>Published:</strong>
-  <%= @post.published %>
-</p>
-
-<p>
-  <strong>Published at:</strong>
-  <%= @post.published_at %>
-</p>
-
-<p>
-  <strong>Author:</strong>
-  <%= @post.author_id %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    </div>
+  </div>
+</div>
+<% if current_author == @post.author %>
+  <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-secondary mb-3" %> 
+<% end %>
+<%= link_to 'Back to posts', posts_path, class: "btn btn-primary mb-3" %>
