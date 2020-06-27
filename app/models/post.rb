@@ -1,5 +1,7 @@
 class Post < ApplicationRecord
   before_save :publish_post
+  
+  has_many :comments
 
   belongs_to :author
   validates :title, length: { minimum: 5}, presence: true
