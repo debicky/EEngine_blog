@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :posts do
-    post 'comments', to: 'comments#create'
+    resources 'comments', only: [:create, :destroy]
   end
   devise_for :authors
   root 'home#index'

@@ -9,6 +9,11 @@ class CommentsController < ApplicationController
     @comment.save
   end
 
+  def destroy
+    @comment = @post.comments.find(params[:id])
+    @comment.destroy
+  end
+
 
 
   private

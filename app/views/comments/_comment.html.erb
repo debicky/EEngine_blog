@@ -1,7 +1,9 @@
-<li class="list-group-item list-group-item-action pl-0">
-  <span class="btn btn-outline-dark btn-sm font-weight-bold rounded-circle cursor">#<%= comment.id %>
-  </span>  
-  <b><%= comment.author.first_name %>  <%= comment.author.last_name %>:</b>
-  
-  <%= comment.body %>
-</li>
+  <li class="list-group-item list-group-item-action pl-0" id="comment-<%= comment.id %>">
+    <span class="btn btn-outline-dark btn-sm font-weight-bold rounded-circle cursor">#<%= comment.id %>
+    </span>  
+    <b><%= comment.author.first_name %>  <%= comment.author.last_name %>:</b>
+    <%= comment.body %>
+    <% if current_author && current_author == comment.author  %>
+      <%= link_to "Delete", post_comment_path(@post, comment), class:"btn btn-danger btn-sm float-right", data: {confirm: "Are you sure?"}, method: :delete, remote: true %>
+    <% end %>
+  </li>
