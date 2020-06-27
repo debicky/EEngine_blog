@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-12">
+    <% @posts.each do |post| %>
+      <%= link_to post, class: "text-decoration-none" do %>
+        <div class="card mb-3">
+          <div class="card-header d-flex justify-content-between">
+            <span>
+              <h5 class="card-title text-dark"><%= post.id %># <%= post.title %> </h5>
+              <h6 class="card-subtitle text-muted">
+                Author <span class="text-dark"><%= post.author.first_name %> <%= post.author.last_name %></span>
+              </h6>
+            </span>
+            <% if current_author == post.author %>
+              <div>
+                <%= link_to "Publish", edit_post_path(post), class: "btn btn-success btn-sm" %>
+                <%= link_to "Edit", edit_post_path(post), class: "btn btn-warning btn-sm" %>
+                <%= link_to "Delete", post, class: "btn btn-danger btn-sm", method: :delete, data: {confirm: "Are you sure?"} %>
+              </div>
+            <% end %>
+          </div>
+          <div class="card-body">
+            <p class="card-text text-dark mb-1"><%= post.body %></p>
+            <p class="card-text"><small class="text-muted">Published <%= post.published_at %></small></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
