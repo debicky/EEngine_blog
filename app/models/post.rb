@@ -8,6 +8,9 @@ class Post < ApplicationRecord
   scope :approved_posts, -> { where(published: true) }
   scope :unapproved_posts, -> { where(published: false) }
 
+  extend FriendlyId
+  friendly_id :title, use: :slugged
+
 
   def publish_post
     if self.published == true

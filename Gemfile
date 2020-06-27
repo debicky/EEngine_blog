@@ -8,6 +8,7 @@ gem 'simple_form'
 gem 'faker'
 gem 'pagy', '~> 3.5' 
 gem 'friendly_id'
+gem 'ransack'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'

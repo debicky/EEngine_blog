@@ -1,9 +1,9 @@
 <% @posts.each do |post| %>
   <%= link_to post, class: "text-decoration-none" do %>
-    <div class="card mb-3">
+    <div class="card mb-3 shadow">
       <div class="card-header d-flex justify-content-between">
         <span>
-          <h5 class="card-title text-dark"><%= post.id %># <%= post.title %> </h5>
+          <h5 class="card-title"><span class="text-dark"><%= post.id %>#</span> <%= post.title %> </h5>
           <h6 class="card-subtitle text-muted">
             Author <span class="text-dark"><%= post.author.first_name %> <%= post.author.last_name %></span>
           </h6>
@@ -18,7 +18,7 @@
       <div class="card-body">
         <p class="card-text text-dark mb-1"><%= post.body %></p>
         <% if post.published? %>
-          <p class="card-text"><small class="text-muted">Published at <%= post.published_at %></small></p>
+          <p class="card-text"><small class="text-muted">Published at <%= post.published_at.strftime("%F %k:%M") %></small></p>
         <% else %>
           <p class="card-text"><small class="badge badge-info">Unpublished post</small></p>
         <% end %>
