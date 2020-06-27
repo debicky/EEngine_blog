@@ -1,29 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
     <%= link_to root_path, class: "navbar-brand" do %>
-    Blog for EEngine
+    <i class="fab fa-microblog"></i>
+      Blog for EEngine
     <% end %>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Posts
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to new_post_path, class: "dropdown-item" do %>
-              Create new post
-            <% end %>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Unpublished posts</a>
-          </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+      <ul class="navbar-nav ml-auto">
+        <% if current_author %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-pen"></i>
+              Post
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to new_post_path, class: "dropdown-item" do %>
+                Create new post
+              <% end %>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Unpublished posts</a>
+            </div>
+          </li>
+        <% end %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-user"></i>
@@ -40,9 +41,6 @@
               <%= link_to "Login", new_author_session_path, class: "dropdown-item" %>
             <% end %>
           </div>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
         </li>
       </ul>
     </div>
