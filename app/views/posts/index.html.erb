@@ -2,8 +2,12 @@
   <span>All your posts</span>
   <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
 </h4>
+<div class="row">
+  <div class="col-12">
+    <h3>Your published posts</h3>
+    <%= render 'posts/post', post: @posts %>
+  </div>
+</div>
 
-
-<%= render 'posts/post', post: @post %>
 
 

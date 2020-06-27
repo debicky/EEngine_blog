@@ -8,6 +8,9 @@ class PostsController < ApplicationController
   def index
     @posts = current_author.posts
   end
+  
+
+
 
   # GET /posts/1
   # GET /posts/1.json

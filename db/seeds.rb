@@ -26,3 +26,12 @@ end
                password_confirmation: 'password'
                )
 end
+
+100.times do |i|
+  post = Post.new
+  post.title = Faker::Lorem.sentence(word_count: 3, random_words_to_add: 7)
+  post.body = Faker::Lorem.paragraph_by_chars(number: 100)
+  post.author = Author.find(Faker::Number.within(range: 1..10))
+  post.published = true
+  post.save
+end
