@@ -1,6 +1,6 @@
-<div class="bg-light">
+<div class="bg-light my-3 p-2 rounded">
   <div class="d-flex justify-content-between py-3">
-    <h4>All posts</h4>
+    <h4 class="ml-2">All posts</h4>
     <div class="form-inline">
       <%= search_form_for @q do |f| %>
         <%= f.search_field :title_cont, class: "form-control", placeholder: "Search by title" %>
@@ -22,11 +22,6 @@
               <% end %>
             </th>
             <th class="text-primary">Body</th>
-            <th><%= sort_link(@q, :published) do %>
-              <i class="fas fa-sort"></i>
-                Is published?
-              <% end %>
-            </th>
             <th><%= sort_link(@q, :published_at) do %>
               <i class="fas fa-sort"></i>
                 Published at
@@ -40,8 +35,13 @@
             <tr>
               <td><%= link_to post.title.truncate(30), post %></td>
               <td><%= post.body.truncate(40) %></td>
-              <td><%= post.published %></td>
-              <td><%= post.published_at %></td>
+              <td>
+                <% if post.published? %>
+                  <%= post.published_at %>
+                <% else %>
+                  <span>Waiting for publication.</span>
+                <% end %>
+              </td>
             </tr>
           <% end %>
         </tbody>

@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   before_save :publish_post
   
-  has_many :comments
+  has_many :comments, dependent: :destroy
 
   belongs_to :author
   validates :title, length: { minimum: 5}, presence: true
