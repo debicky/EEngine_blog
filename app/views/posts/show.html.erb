@@ -20,7 +20,7 @@
       <%= form_with model: [@post, @comment] do |f| %>
         <%= f.label :body, "Create your comment", class: "form-label" %>
         <%= f.text_field :body, class: "form-control" %>
-        <%= f.submit "Add comment", class: "btn btn-primary btn-sm " %>
+        <%= f.submit "Add comment", class: "btn btn-primary btn-sm mt-2 " %>
       <% end %>
     <% else %>
       <%= link_to new_author_registration_path, class: "btn btn-primary btn-sm" do %>
@@ -28,19 +28,17 @@
       <% end %>
     <% end %>
     </div>
-    <% unless @post.comments.empty? %>
-      <div class="card-body">
-        <ul class="list-group list-group-flush" id="comment-box">
+      <div class="card-body py-0">
+        <ul class="list-group list-group-flush " id="comment-box">
           <% @comments.each do |comment| %>
             <%= render 'comments/comment', comment: comment %>
           <% end %>
         </ul>
       </div>
-    <% end %>
   </div>
 </div>
 <% if current_author == @post.author %>
   <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-warning mb-3" %> 
   <%= link_to 'Destroy', post_path(@post), class: "btn btn-danger mb-3", method: :delete, data: { confirm: "Are you sure?"} %> 
 <% end %>
-<%= link_to 'Back to posts', :back, class: "btn btn-primary mb-3" %>
+<%= link_to 'Back to posts', :back, class: "btn btn-primary mb-5" %>
