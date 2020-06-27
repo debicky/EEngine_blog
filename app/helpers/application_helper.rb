@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include Pagy::Frontend
+
   def bootstrap_class_for flash_type
     { success: "text-center mb-0  alert-success", error: "text-center mb-0  alert-danger", alert: "text-center mb-0  alert-primary", notice: "text-center mb-0  alert-info" }.stringify_keys[flash_type.to_s] || flash_type.to_s
   end
