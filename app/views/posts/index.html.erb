@@ -1,6 +1,6 @@
 <div class="bg-light my-3 p-2 rounded">
   <div class="d-flex justify-content-between py-3">
-    <h4 class="ml-2">All posts</h4>
+    <h3 class="ml-1">All your posts, <%= current_author.first_name + " " + current_author.last_name %>.</h3>
     <div class="form-inline">
       <%= search_form_for @q do |f| %>
         <%= f.search_field :title_cont, class: "form-control", placeholder: "Search by title" %>

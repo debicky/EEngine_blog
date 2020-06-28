@@ -6,9 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-if Author.find_by_email('admin@admin.com').nil?
+if Author.find_by_email('test@test.com').nil?
   author = Author.new(
-    email: "admin@admin.com",
+    email: "test@test.com",
     first_name: "FirstName",
     last_name: "LastName",
     password: "password",
@@ -27,11 +27,19 @@ end
                )
 end
 
-100.times do |i|
+300.times do |i|
   post = Post.new
   post.title = Faker::Lorem.sentence(word_count: 3, random_words_to_add: 7)
   post.body = Faker::Lorem.paragraph_by_chars(number: 100)
   post.author = Author.find(Faker::Number.within(range: 1..10))
-  post.published = true
+  post.published = [true, false].sample
   post.save
+  
+  pseudo_rng = Random.new
+  
+  (pseudo_rng.rand(8)).times do |i|
+    comment = post.comments.build(body: Faker::Lorem.paragraph_by_chars(number: 20),
+    author: Author.find(1 + pseudo_rng.rand(10)))
+    comment.save
+  end
 end
