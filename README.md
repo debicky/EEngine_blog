@@ -1,6 +1,6 @@
 # Blog for EEngine
 
-Simple blog
+## [Live blog](http://eengine-blog.herokuapp.com/)
 
 Users can create posts and add comments below them.
 Comments are created and deleted without refresh due to AJAX.
