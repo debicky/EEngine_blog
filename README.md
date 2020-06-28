@@ -1,24 +1,31 @@
-# README
+# Blog for EEngine
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple blog
 
-Things you may want to cover:
+Users can create posts and add comments below them.
+Comments are created and deleted without refresh due to AJAX.
+User can decide when post is ready for publication by marking "Publish your post" in create/edit form.
 
 * Ruby version
+- 6.0.3
 
-* System dependencies
+* Ruby on Rails version
+- 2.7.1
 
-* Configuration
+* PostgreSQL database
 
-* Database creation
+# Gems
 
-* Database initialization
+* gem 'bootstrap' - basic layout and RWD,
 
-* How to run the test suite
+* gem 'devise' - authentication system with additional First name and Last name fields,
 
-* Services (job queues, cache servers, search engines, etc.)
+* gem 'simple_form' - easier creation of forms,
 
-* Deployment instructions
+* gem 'faker' - seed your DB with sample data,
 
-* ...
+* gem 'pagy', - super lightweight gem for pagination, compared to other one like this,
+
+* gem 'friendly_id' - nicer URLs,
+
+* gem 'ransack' - search and filter your posts.
